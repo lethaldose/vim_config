@@ -1,0 +1,38 @@
+color desert
+set hidden
+map <silent> <F5> mmgg=G`m^
+imap <silent> <F5> <Esc> mmgg=G`m^
+map  <F2> :set nowrap!
+imap <F2> <Esc> :set nowrap!
+map  <F3> :set nohlsearch
+imap <F3> <Esc> :set nohlsearch
+set nocompatible 
+" Add recently accessed projects menu (project plugin)
+set viminfo^=!
+" highlight current line
+set cul
+highlight CursorLine  guibg=#444444 cterm=none
+
+
+"set gfn=Menlo:h14
+set gfn=Inconsolata:h14
+
+set nobackup
+set noswapfile
+
+
+set statusline=   " clear the statusline for when vimrc is reloaded
+set statusline+=%-3.3n\                      " buffer number
+set statusline+=%f\                          " file name
+set statusline+=%h%m%r%w                     " flags
+set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+set statusline+=%{&fileformat}]              " file format
+set statusline+=%{fugitive#statusline()}     " git status fugitive plugin
+set statusline+=%=                           " right align
+set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+set statusline+=%b,0x%-8B\                   " current char
+set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+
+highlight LineNr guifg=DarkGrey guibg=NONE
+
